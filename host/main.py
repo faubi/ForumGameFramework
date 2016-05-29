@@ -8,6 +8,7 @@ argparser.add_argument('--database-path', default='gamehost.db', help='Sqlite da
 
 games = load_games()
 
+# TODO maybe move game loading code elsewhere, merge with agent loader?
 def load_games(game_dir='games'):
     if not os.path.exists(game_dir):
         os.mkdir(game_dir)
@@ -29,9 +30,10 @@ game_manager = GameManager(args.database_path)
 
 game_manager.loaded_gamed(games)
 
+# TODO figure out agent loading stuff
+
 for instance in game_manager.all_instances():
-    for frontend in instance.frontends:
-        frontend.setup(
+    # TODO call frontend setup function with corresponding agent
 
 eventloop = asyncio.get_event_loop()
 agent_loops = [agent.loop() for agent in agents]

@@ -10,4 +10,4 @@ class Game:
     
     @staticmethod
     def load(path):
-        # TODO figure out game format and load
+        # TODO figure out game format and loader
